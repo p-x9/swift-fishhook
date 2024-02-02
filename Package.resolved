@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "machokit-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/p-x9/MachOKit-SPM.git",
+      "state" : {
+        "revision" : "ea74e04ded00d7ff261c84bc9ef0a47c38b345e1",
+        "version" : "0.9.0"
+      }
+    }
+  ],
+  "version" : 2
+}
