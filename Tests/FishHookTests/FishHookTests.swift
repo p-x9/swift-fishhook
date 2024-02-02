@@ -18,7 +18,7 @@ final class FishHookTests: XCTestCase {
             return
         }
 
-        var rebindings: [Rebinding] = [
+        let rebindings: [Rebinding] = [
             .init(
                 name: "_$ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_A2HSus6UInt32VtF",
                 replacement: .init(mutating: machO.ptr.advanced(by: to.offset)),
@@ -28,7 +28,7 @@ final class FishHookTests: XCTestCase {
 
         FishHook.rebind_symbols_image(
             machO: machO,
-            rebindings: &rebindings
+            rebindings: rebindings
         )
 
         var optional: Int?

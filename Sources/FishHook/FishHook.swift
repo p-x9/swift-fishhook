@@ -6,7 +6,7 @@ public enum FishHook {
     @inline(__always)
     public static func rebind_symbols_image(
         machO: MachOImage,
-        rebindings: inout [Rebinding]
+        rebindings: [Rebinding]
     ) {
         prepend_rebindings(&rebindingsEntry, rebindings: rebindings)
         rebind_symbols_for_image(&rebindingsEntry, machO: machO)
@@ -14,7 +14,7 @@ public enum FishHook {
 
     @inline(__always)
     public static func rebind_symbols(
-        rebindings: inout [Rebinding]
+        rebindings: [Rebinding]
     ) {
         prepend_rebindings(&rebindingsEntry, rebindings: rebindings)
 
@@ -67,13 +67,13 @@ extension FishHook {
         guard let index = indirectSymbol.index else { continue }
         let symbol = symbols[index]
 
-        for (entryIndex, entry) in rebindingsEntry.enumerated() {
-            for (rebindIndex, rebinding) in entry.rebindings.enumerated() {
+        for entry in rebindingsEntry {
+            for rebinding in entry.rebindings {
                 guard rebinding.name.withCString({ strcmp($0, symbol.nameC) == 0 }) else { continue }
 
                 let ptr = UnsafeMutableRawPointer(mutating: machO.ptr.advanced(by: symbol.offset))
                 if rebinding.replaced == nil && rebinding.replacement != ptr {
-                    rebindingsEntry[entryIndex].rebindings[rebindIndex].replaced?.pointee = ptr
+                    rebinding.replaced?.pointee = ptr
                 }
                 let err = vm_protect(
                     mach_task_self_,
