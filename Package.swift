@@ -11,19 +11,25 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/p-x9/MachOKit-SPM.git", from: "0.9.0")
+        .package(url: "https://github.com/p-x9/MachOKit.git", from: "0.9.1")
     ],
     targets: [
         .target(
             name: "FishHook",
             dependencies: [
-                .product(name: "MachOKit", package: "MachOKit-SPM")
+                .product(name: "MachOKit", package: "MachOKit")
             ]
         ),
         .testTarget(
             name: "FishHookTests",
             dependencies: [
                 "FishHook"
+            ],
+            linkerSettings: [
+                .unsafeFlags([
+                    "-Xlinker",
+                    "-interposable"
+                ])
             ]
         )
     ]
