@@ -18,7 +18,7 @@ public enum FishHook {
     ) {
         prepend_rebindings(&rebindingsEntry, rebindings: rebindings)
 
-        if rebindingsEntry.count == 0 {
+        if rebindingsEntry.count == 1 {
             _dyld_register_func_for_add_image { ptr, _ in
                 guard let ptr else { return }
                 let machO = MachOImage(ptr: ptr)
