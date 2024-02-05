@@ -69,7 +69,7 @@ extension FishHook {
 
         for entry in rebindingsEntry {
             for rebinding in entry.rebindings {
-                guard rebinding.name.withCString({ strcmp($0, symbol.nameC) == 0 }) else { continue }
+                guard rebinding.name.withCString({ strcmp($0, symbol.nameC + 1) == 0 }) else { continue }
 
                 let ptr = UnsafeMutableRawPointer(mutating: machO.ptr.advanced(by: symbol.offset))
                 if rebinding.replaced == nil && rebinding.replacement != ptr {
