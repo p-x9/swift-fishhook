@@ -1,8 +1,8 @@
 @_exported import MachOKit
 
-var rebindingsEntry: [RebindingsEntry] = []
-
 public enum FishHook {
+    static var rebindingsEntry: [RebindingsEntry] = []
+
     @inline(__always)
     public static func rebind_symbols_image(
         machO: MachOImage,
