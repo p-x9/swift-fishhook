@@ -5,8 +5,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/p-x9/MachOKit.git",
       "state" : {
-        "revision" : "9212cd221315ca9ad7d0003d4cd5090f4b6c9952",
-        "version" : "0.18.0"
+        "revision" : "e5a7755b18d06a8e2bffa17a3a56d8fd31013a17",
+        "version" : "0.21.1"
+      }
+    },
+    {
+      "identity" : "swift-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-crypto.git",
+      "state" : {
+        "revision" : "81bee98e706aee68d39ed5996db069ef2b313d62",
+        "version" : "3.7.1"
       }
     }
   ],
