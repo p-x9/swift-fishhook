@@ -55,8 +55,8 @@ extension FishHook {
             return
         }
 
-        let symbols = Array(machO.symbols)
-        let indirectSymbols = Array(_indirectSymbols)[start ..< start + count]
+        let symbols = machO.symbols
+        let indirectSymbols = _indirectSymbols[start ..< start + count]
 
         let bindings = slide + section.address
         let bindingsPtr = UnsafeMutablePointer<UnsafeMutableRawPointer>(
@@ -65,7 +65,7 @@ extension FishHook {
 
     symbolLoop: for (indirectSymbolIndex, indirectSymbol) in indirectSymbols.enumerated() {
         guard let index = indirectSymbol.index else { continue }
-        let symbol = symbols[index]
+        let symbol = symbols[AnyIndex(index)]
 
         for entry in rebindingsEntry {
             for rebinding in entry.rebindings {
