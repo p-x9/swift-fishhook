@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/p-x9/MachOKit.git",
       "state" : {
-        "revision" : "d0b543aa795d83539691b80959b0adb152b072e7",
-        "version" : "0.35.1"
+        "revision" : "fc1f2646220b3ce9db2e415b6b8848f5a89ed865",
+        "version" : "0.39.0"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/p-x9/swift-fileio.git",
       "state" : {
-        "revision" : "23349fe1eb23c6ca2876d461a46ff60c0fa92f9c",
-        "version" : "0.9.0"
+        "revision" : "76a4c719e796a1e5052e283788d8cd92408758fe",
+        "version" : "0.12.0"
       }
     }
   ],
